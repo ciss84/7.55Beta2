@@ -1,0 +1,18 @@
+CACHE MANIFEST 
+exploit.js
+index.html
+payload755.html
+script.js
+style.css
+style.js
+img\font.png
+PAYLOADS\app2usb.js
+PAYLOADS\c-code.js
+PAYLOADS\cache.js
+PAYLOADS\DB_SG_Backup.js
+PAYLOADS\ftp.js
+PAYLOADS\gdumper.js
+PAYLOADS\henSP7.js
+PAYLOADS\kdumper.js
+PAYLOADS\mira2.js
+PAYLOADS\ps4henvtx-755.js
