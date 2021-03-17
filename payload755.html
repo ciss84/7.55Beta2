@@ -25,9 +25,6 @@ function preloadScripts(lst)
         script += xhr.responseText + '\n';
     }
 }
-// Taken from https://github.com/saelo/jscpwn/blob/master/int64.js
-//
-// Copyright (c) 2016 Samuel Groß
 
 function Int64(low, high) {
     var bytes = new Uint8Array(8);
@@ -809,6 +806,30 @@ function go() {
 	prepareUAF();
 }
 
+function removeScript(){let head=document.getElementsByTagName("head")[0],scripts=head.getElementsByTagName("script");
+for (let i=scripts.length;i > 0;i--){head.removeChild(scripts[i - 1]);}} 
+function addDays(days){let result=new Date();result.setDate(result.getDate()+days);return result;}
+function createCookie(name,value){let expire=addDays(30);document.cookie=name+"="+value+";expires="+expire.toUTCString();}
+function modifyCookie(name,value){let expire=addDays(30);document.cookie=name+"="+value+";expires="+expire.toUTCString();}
+function getCookie(name){let dc=document.cookie;let prefix=name+"=";let begin=dc.indexOf(";"+prefix);if (begin == -1){begin=dc.indexOf(prefix);
+    if (begin != 0) 
+    return null;}
+    else return readCookie(name);}function readCookie(ex){const cookieValue=document.cookie .split(";") .find((row) => row.startsWith(ex)) .split("=")[1];
+    return cookieValue;}function finished(){
+        switch (readCookie("exploit")){
+            case "mira2": removeScript();
+            break;
+            case "henSP7": removeScript();
+            break;
+            case "kdumper": removeScript();
+            break;
+            case "gdumper": removeScript();
+            break;
+            case "ftp": removeScript();
+            break;
+            case "app2usb": removeScript();
+            break;}}
+
 function done()
 {
     if(main_ret == 0 || main_ret == 179)
@@ -819,6 +840,7 @@ function done()
     else
         alert("Jailbreak failed! Reboot your PS4 and try again.");
 }
+
 window.midExploit = function()
 {
     if(document.location.hash)
@@ -829,6 +851,7 @@ window.midExploit = function()
     else
         preloadScripts(['exploit.js', 'PAYLOADS/c-code.js'], go);
     }
+
 window.postExploit = function()
 {
 
@@ -839,6 +862,7 @@ window.postExploit = function()
         done();
     }, 150);
 };
+
 </script>
 <button id="input1" onfocus="handle2()"></button>
 <button id="input2"></button>
